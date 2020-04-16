@@ -78,6 +78,9 @@ footer .statusbar {
 
 .statusbar_span {margin-right: 2em;}
 
+TABLE TD.desktop-switch {display:block;}
+TABLE TD.mobile-switch {display:none;}
+
 @media screen and (max-width: 800px) {
 
 TABLE TD {
@@ -86,7 +89,8 @@ TABLE TD {
 	border: none !important;
 }
 
-TABLE TD:first-child {display:none;}
+TABLE TD.desktop-switch {display:none;}
+TABLE TD.mobile-switch {display:block;}
 TABLE TD:nth-child(2) {
 	background-color: #343a40 ;
 	color: white;

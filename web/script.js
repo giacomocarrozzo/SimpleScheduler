@@ -66,17 +66,27 @@ function switchRow(id) {
 	var f = document.getElementById(formId);
 	var newEnabledValue = !f.elements["enabled"].checked;
 
+	var sourceId = "select_" + id ;
+	var destinationId = "select_f_" + id ;
+
+	var v = document.getElementById(sourceId).attributes["data-original-title"].nodeValue
+	document.getElementById(destinationId).value = v;
+
 	f.elements["enabled"].checked = newEnabledValue;
 	f.submit(); 
 
-	var elementId = "enabled_" + id ;
-	var e = document.getElementById(elementId);
+	var elementname = "enabled_" + id ;
+	var e = document.getElementsByName(elementname);
 	if (newEnabledValue) {
-		element.classList.remove("mdi-toggle-switch-off-outline");
-		e.classList.add("mdi-toggle-switch text-green");
+		e[0].classList.remove("mdi-toggle-switch-off-outline");
+		e[1].classList.remove("mdi-toggle-switch-off-outline");
+		e[0].classList.add("mdi-toggle-switch text-green");
+		e[1].classList.add("mdi-toggle-switch text-green");
 	} else {
-		e.classList.remove("mdi-toggle-switch text-green");
-		element.classList.add("mdi-toggle-switch-off-outline");
+		e[0].classList.remove("mdi-toggle-switch text-green");
+		e[1].classList.remove("mdi-toggle-switch text-green");
+		e[0].classList.add("mdi-toggle-switch-off-outline");
+		e[1].classList.add("mdi-toggle-switch-off-outline");
 	}
 }
 
