@@ -94,7 +94,7 @@
 								
 				<?php foreach ($sched as $s) :  ?>
 				  <tr id="rowShow_<?php echo $s->id ?>" style="opacity: <?php echo ($s->enabled) ? "1" : ".3" ?>">
-					  <td class="text-center"><span class="mdi mdi-36px <?php echo ($s->enabled) ? "mdi-toggle-switch text-green" : "mdi-toggle-switch-off-outline"; ?> resize-icon" ></span></td>
+					  <td class="text-center"><span onclick="switchRow('<?php echo $s->id ?>')" id="enabled_<?php echo $s->id ?>" class="mdi mdi-36px <?php echo ($s->enabled) ? "mdi-toggle-switch text-green" : "mdi-toggle-switch-off-outline"; ?> resize-icon" ></span></td>
 					  <td><span id="select_<?php echo $s->id ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $s->entity_id ?>"><strong><?php echo $switch_friendly_name[$s->entity_id] ?></strong></span></td>
 					  <td class="text-green"><strong><?php echo $s->on_tod ?></strong></td>
 					  <td><?php if ($s->on_dow!="") echo get_friendly_html_dow($s->on_dow,true);  ?></td>

@@ -59,6 +59,24 @@ function saveRow(id) {
 	var elementId = "form_" + id ;
 	var f = document.getElementById(elementId);
 	f.submit(); 
-
-	
 }
+
+function switchRow(id) {
+	var formId = "form_" + id ;
+	var f = document.getElementById(formId);
+	var newEnabledValue = !f.elements["enabled"].checked;
+
+	f.elements["enabled"].checked = newEnabledValue;
+	f.submit(); 
+
+	var elementId = "enabled_" + id ;
+	var e = document.getElementById(elementId);
+	if (newEnabledValue) {
+		element.classList.remove("mdi-toggle-switch-off-outline");
+		e.classList.add("mdi-toggle-switch text-green");
+	} else {
+		e.classList.remove("mdi-toggle-switch text-green");
+		element.classList.add("mdi-toggle-switch-off-outline");
+	}
+}
+
