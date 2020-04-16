@@ -1,3 +1,6 @@
+**Version 0.17**
+- Switch Improved
+
 **Version 0.16**
 - Created dynamic switch
 
