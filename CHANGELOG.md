@@ -1,3 +1,6 @@
+**Version 0.16**
+- Created dynamic switch
+
 **Version 0.15**
 - Fix Timezone Issue
 
