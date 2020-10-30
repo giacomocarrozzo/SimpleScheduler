@@ -93,6 +93,7 @@
 			  </tr>
 								
 				<?php foreach ($sched as $s) :  ?>
+				  <?php if ($s->id) :  ?>
 				  <tr id="rowShow_<?php echo $s->id ?>" style="opacity: <?php echo ($s->enabled) ? "1" : ".3" ?>">
 					  <td class="text-center desktop-switch"><span onclick="switchRow('<?php echo $s->id ?>')" name="enabled_<?php echo $s->id ?>" class="mdi mdi-36px <?php echo ($s->enabled) ? "mdi-toggle-switch text-green" : "mdi-toggle-switch-off-outline"; ?> resize-icon" ></span></td>
 					  <td><span id="select_<?php echo $s->id ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $s->entity_id ?>"><strong><?php echo $switch_friendly_name[$s->entity_id] ?></strong></span></td>
@@ -131,7 +132,7 @@
 						</td>
 					</form>
 				  </tr>
-				  
+				<?php endif;  ?>
 				<?php endforeach;  ?>
 			</tbody>
 		</table>
@@ -143,15 +144,14 @@
 	  <div class="modal-dialog modal-xl" role="document">
 		<div class="modal-content">
 		  <div class="modal-header">
-			<h5 class="modal-title" id="exampleModalLongTitle">Scheluler LOG</h5>
+			<h5 class="modal-title" id="exampleModalLongTitle">Diagnostic</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			  <span aria-hidden="true">&times;</span>
 			</button>
 		  </div>
 		  <div class="modal-body">
-			<pre>
-				<?php readfile($logfile); ?>
-			</pre>
+			<p>Timezone: <?php echo get_ha_timezone(); ?></p>
+			<p>Internal Time: <?php echo date("Y-m-d H:i"); ?></p>
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
